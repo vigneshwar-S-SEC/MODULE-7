@@ -1,4 +1,4 @@
-# MODULE-7
+[# MODULE-7
 
 EXP NO:1 C PROGRAM FOR ARRAY OF STRUCTURE TO CHECK ELIGIBILITY FOR THE VACCINE.
 
@@ -319,3 +319,4 @@ Output:
 
 Result:
 Thus, the program is verified successfully
+](https://github.com/gangatharan007/Advanced-C-Lab-Manual.git)
