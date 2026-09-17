@@ -1,5 +1,3 @@
-[# MODULE-7
-
 EXP NO:1 C PROGRAM FOR ARRAY OF STRUCTURE TO CHECK ELIGIBILITY FOR THE VACCINE.
 
 Aim:
@@ -15,40 +13,39 @@ Else
 -	Print "Vaccine Eligibility: Yes"
 5.	Print details (e.age, e.n)
 6.	Return 0
-
+ 
 Program:
-
-```c
+```
 #include <stdio.h>
+#include <string.h>
 
-struct eligible {
+struct Person {
+    char name[50];
     int age;
-    char n[50];
 };
 
 int main() {
-    struct eligible e;
-
-    printf("Enter age: ");
-    scanf("%d", &e.age);
-    printf("Enter name: ");
-    scanf("%s", e.n);
-
-    if (e.age <= 6)
-        printf("Vaccine Eligibility: No\n");
+    struct Person p;
+    scanf("%d", &p.age);
+    scanf("%s", p.name);
+    printf("Age:%d\n", p.age);
+    printf("Name:%svaccine:%d\n",p.name,p.age);
+    
+   
+    if(p.age>6)
+    printf("eligibility:yes");
     else
-        printf("Vaccine Eligibility: Yes\n");
-
-    printf("Age: %d\n", e.age);
-    printf("Name: %s\n", e.n);
-
+    printf("eligibility:no");
     return 0;
 }
 ```
 
+
 Output:
 
-<img width="500" height="290" alt="exp1_output" src="https://github.com/user-attachments/assets/b91f650b-9d31-4171-8fed-e9edd13fb7c8" />
+<img width="750" height="441" alt="Screenshot 2026-09-01 133816" src="https://github.com/user-attachments/assets/bfc25b9a-c6b5-4553-8936-16fb765970f3" />
+
+
 
 Result:
 Thus, the program is verified successfully. 
@@ -67,43 +64,32 @@ Algorithm:
 5.	Call the add function with n as an argument.
 6.	Print the result returned by the add function.
 7.	Return 0
-
+ 
 Program:
-
-```c
-#include <stdio.h>
-
-struct numbers {
-    int a;
-    int b;
-};
-
-struct numbers add(struct numbers n) {
-    struct numbers result;
-    result.a = n.a;
-    result.b = n.a + n.b;
-    return result;
-}
-
-int main() {
-    struct numbers n, res;
-
-    printf("Enter value of a: ");
-    scanf("%d", &n.a);
-    printf("Enter value of b: ");
-    scanf("%d", &n.b);
-
-    res = add(n);
-
-    printf("Sum = %d\n", res.b);
-
-    return 0;
+```
+#include<stdio.h>
+struct add
+{
+    int a,b;
+}n;
+int main()
+{
+    scanf("%d%d",&n.a,&n.b);
+    printf("%d",n.a+n.b);
 }
 ```
 
+
+
+
 Output:
 
-<img width="500" height="236" alt="exp2_output" src="https://github.com/user-attachments/assets/155c5f50-6552-403a-b392-010c882ad33d" />
+<img width="431" height="385" alt="Screenshot 2026-09-01 133841" src="https://github.com/user-attachments/assets/0fc02962-f315-49af-a07e-18aaaacebc8d" />
+
+
+
+
+
 
 Result:
 Thus, the program is verified successfully
@@ -131,40 +117,38 @@ Use scanf to input the file name into the name array.
 3.	Print a message indicating that the file has been closed.
 4.	End the main function.
 5.	Return 0 to indicate successful program execution.
-
+ 
 Program:
-
-```c
+```
 #include <stdio.h>
-#include <stdlib.h>
-
-int main() {
-    FILE *p;
-    char name[50];
-
-    printf("Enter a file name: ");
-    scanf("%s", name);
-
-    printf("File \"%s\" is being created successfully\n", name);
-
-    p = fopen(name, "w");
-    if (p == NULL) {
-        printf("Error: Could not open file\n");
-        exit(1);
-    }
-
-    printf("File opened successfully\n");
-
-    fclose(p);
-    printf("File closed successfully\n");
-
-    return 0;
+int main()
+{
+    FILE *fp;
+    char a[20];
+    scanf("%s",a);
+    printf("%s File Created Successfully\n",a);
+    fp = fopen("a","w");
+    printf("%s File Opened\n",a);
+    fclose(fp);
+    printf("%s File Closed\n",a);
 }
 ```
 
+
+
+
 Output:
 
-<img width="558" height="263" alt="exp3_output" src="https://github.com/user-attachments/assets/30178a72-4dd6-41fb-8db3-5c7bbd0866a3" />
+<img width="847" height="380" alt="Screenshot 2026-09-01 133903" src="https://github.com/user-attachments/assets/8fad8164-a4e6-4cdb-a658-40a7448ed8c1" />
+
+
+
+
+
+
+
+
+
 
 Result:
 Thus, the program is verified successfully
@@ -190,49 +174,35 @@ Use scanf to input the file name into the name array and the number of strings i
 3.	Print a message indicating that data has been added successfully.
 4.	End the main function.
 5.	Return 0 to indicate successful program execution.
-
+ 
 Program:
 
-```c
+```
 #include <stdio.h>
-#include <stdlib.h>
-
-int main() {
-    FILE *p;
-    char name[50];
-    char text[100];
-    int num, i;
-
-    printf("Enter a file name: ");
-    scanf("%s", name);
-    printf("Enter the number of strings: ");
-    scanf("%d", &num);
-
-    p = fopen(name, "w");
-    if (p == NULL) {
-        printf("Error: Could not open file\n");
-        exit(1);
+int main()
+{
+    FILE *fp;
+    char name[30] , b[30];
+    int a;
+    scanf("%s",name);
+    scanf("%d",&a);
+    fp = fopen("name" , "w");
+    printf("%s Opened\n",name);
+    for(int i=0 ; i<a ; i++)
+    {
+        scanf("%s",b);
+        fputs(b,fp);
     }
-
-    printf("File opened successfully\n");
-
-    for (i = 0; i < num; i++) {
-        printf("Enter string %d: ", i + 1);
-        scanf("%s", text);
-        fputs(text, p);
-        fputs("\n", p);
-    }
-
-    fclose(p);
-    printf("Data added successfully\n");
-
-    return 0;
+    printf("Data added Successfully\n");
 }
 ```
 
-Output:
 
-<img width="500" height="452" alt="exp4_output" src="https://github.com/user-attachments/assets/7d2b73ea-451b-4c49-90b5-a4aa14d1be61" />
+
+
+Output:
+<img width="838" height="460" alt="Screenshot 2026-09-01 133942" src="https://github.com/user-attachments/assets/45c791cb-dec2-461f-bbad-5bcbc8cf775c" />
+
 
 Result:
 Thus, the program is verified successfully
@@ -272,51 +242,34 @@ Algorithm:
 13.End the program by returning 0.
 
 Program:
+```
+#include<stdio.h>
+struct std{
+    char name[20];
+    int roll;
+    float per;
+}acc;
 
-```c
-#include <stdio.h>
-#include <stdlib.h>
-
-struct subject {
-    char name[50];
-    int marks;
-};
-
-int main() {
-    int n, i;
-    struct subject *s;
-
-    printf("Enter number of subjects: ");
-    scanf("%d", &n);
-
-    s = (struct subject *) malloc(n * sizeof(struct subject));
-    if (s == NULL) {
-        printf("Memory allocation failed\n");
-        exit(1);
-    }
-
-    for (i = 0; i < n; i++) {
-        printf("Enter name of subject %d: ", i + 1);
-        scanf("%s", s[i].name);
-        printf("Enter marks of subject %d: ", i + 1);
-        scanf("%d", &s[i].marks);
-    }
-
-    printf("\nSubject Details:\n");
-    for (i = 0; i < n; i++) {
-        printf("Subject: %s, Marks: %d\n", s[i].name, s[i].marks);
-    }
-
-    free(s);
-
-    return 0;
+int main(){
+    scanf("%d",&acc.roll);
+    scanf("%s",acc.name);
+    scanf("%f",&acc.per);
+    printf("Rollno is: %d\n",acc.roll);
+    printf("Name is: %s\n",acc.name);
+    printf("Percentage is: %.2f",acc.per);
 }
 ```
 
-Output:
 
-<img width="500" height="479" alt="exp5_output" src="https://github.com/user-attachments/assets/0bb0fdf6-8f52-479d-9466-633600ed4142" />
+
+Output:
+<img width="713" height="323" alt="Screenshot 2026-09-01 134008" src="https://github.com/user-attachments/assets/07f8e1f3-946a-4b5e-94cc-39bb4d10fb19" />
+
+
+
+
+
 
 Result:
-Thus, the program is verified successfully
-](https://github.com/gangatharan007/Advanced-C-Lab-Manual.git)
+
+Thus, the program has been verified successfully. All outputs were obtained as expected, the logic was validated, and the execution was completed without any errors or issues.
