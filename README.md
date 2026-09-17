@@ -263,6 +263,7 @@ int main(){
 
 
 Output:
+
 <img width="713" height="323" alt="Screenshot 2026-09-01 134008" src="https://github.com/user-attachments/assets/07f8e1f3-946a-4b5e-94cc-39bb4d10fb19" />
 
 
